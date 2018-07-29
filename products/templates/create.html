@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html'%}
+{% block content %}
+{% load staticfiles %}
+<div class="container">
+    {% if error %}
+      {{error}}
+    {% endif %}
+<h1>
+
+    Add Product!
+</h1>
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    Title: <br/>
+    <input type="text" name="title"/> <br/>
+    Body: <br/>
+    <textarea rows="4" cols="50" name = 'body'> </textarea> <br/>
+
+    Image: <br/>
+    <input type="file" name="image"/> <br/><br/>
+    Icon: <br/>
+    <input type="file" name="icon"/> <br/><br/>
+
+
+<input class="btn btn-primary" type="submit" value ="Add Product" />
+</form>
+{%endblock %}
+</body>
+</html>

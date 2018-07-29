@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html'%}
+{% block content %}
+ {% load staticfiles %}
+<div class="container">
+    {% if error %}
+      {{error}}
+    {% endif %}
+<h1>
+
+    Login!
+</h1>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username: <br/>
+    <input type="text" name="Username"/> <br/>
+    Password: <br/>
+    <input type="password" name="password"> <br/>
+
+
+<input class="btn btn-primary" type="submit" value ="Login!"/>
+</form>
+{%endblock %}
+</body>
+</html>

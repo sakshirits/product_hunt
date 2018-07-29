@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% extends 'base.html'%}
+{% block content %}
+     {% load staticfiles %}
+<div class="container">
+    {% if error %}
+      {{error}}
+    {% endif %}
+<h1>
+    <img src="{% static 'signup.jpg'%}" width="80" height="80" class="d-inline-block align-top" />
+    Signup!
+</h1>
+<form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    Username: <br/>
+    <input type="text" name="Username"/> <br/>
+    Password: <br/>
+    <input type="password" name="password1"> <br/>
+    Confirm Password: <br/>
+     <input type="password" name="password2"> <br/><br/>
+<input class="btn btn-primary" type="submit" name ="SignUp!">
+</form>
+
+{%endblock %}
+
+</div>
+
+</body>
+</html>
